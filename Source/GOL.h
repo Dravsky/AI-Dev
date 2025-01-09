@@ -4,7 +4,7 @@
 #include "Cells.h"
 #include <memory>
 
-class CAScene : public Scene {
+class GOL : public Scene {
 public:
     bool Initialize() override;
     void Update() override;
@@ -12,5 +12,8 @@ public:
 
 public:
     std::unique_ptr<Framebuffer> m_framebuffer;
-    std::unique_ptr<Cells<uint8_t>> m_cells;
+    std::unique_ptr<Cells<uint8_t>> m_cellsA;
+    std::unique_ptr<Cells<uint8_t>> m_cellsB;
+
+    int m_frame{ 0 };
 };
