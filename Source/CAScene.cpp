@@ -13,7 +13,7 @@ bool CAScene::Initialize() {
 
     m_framebuffer = std::make_unique<Framebuffer>(m_renderer, m_renderer.m_width / 2, m_renderer.m_height / 2);
 
-    m_cells = std::make_unique<Cells<uint8_t>>(m_renderer.m_width / 2, m_renderer.m_height / 2);
+    m_cells = std::make_unique<Cells<bool>>(m_renderer.m_width / 2, m_renderer.m_height / 2);
 
     return true;
 }
@@ -31,9 +31,9 @@ void CAScene::Update()
         {
             int i = 0; //0-7
 
-            i |= m_cells->Read(x, y) << 1;
-            i |= m_cells->Read(x - 1, y) << 2;
-            i |= m_cells->Read(x + 1, y);
+            i |= (int)(m_cells->Read(x, y) << 1);
+            i |= (int)(m_cells->Read(x - 1, y) << 2);
+            i |= (int)(m_cells->Read(x + 1, y));
 
             uint8_t state = (rule & 1 << i);
             m_cells->Write(x, y + 1, state);
