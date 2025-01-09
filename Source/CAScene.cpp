@@ -34,7 +34,7 @@ void CAScene::Update() {
 
     m_cells->Write(m_cells->m_width / 2, 0, 1);
 
-    int rule = 5;
+    int rule = 30;
     for (int y = 0; y < m_cells->m_height - 1; y++)
     {
         for (int x = 1; x < m_cells->m_width - 1; x++)
@@ -58,7 +58,7 @@ void CAScene::Update() {
     }
 }
 
-void CAScene::Draw() 
+void CAScene::Draw()
 {
     // update framebuffer
     m_framebuffer->Update();
