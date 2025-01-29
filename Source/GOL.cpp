@@ -6,7 +6,7 @@ const color_t black{ 0, 0, 0, 255 };
 
 bool GOL::Initialize() {
     m_renderer.Initialize();
-    m_renderer.CreateWindow("Game Of Life", 800, 600);
+    m_renderer.CreateWindow("Game D Life", 800, 600);
 
     m_input.Initialize();
     m_input.Update();
